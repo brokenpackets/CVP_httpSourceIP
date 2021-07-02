@@ -51,9 +51,8 @@ def uploadFile(fileBody,fileLocation,fileName,sudo=False):
       # Hash matches
       return True
     else:
-      return True
       removeFile = ss.runCmds( 1, [ 'enable', 'bash timeout 2 sudo rm -rf '+fileLocation+fileName])
-      raise hashException('Hash Mismatch')
+      raise hashException('Hash Mismatch on file '+fileName)
 
 ### Rest of script
 def main():
